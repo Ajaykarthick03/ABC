@@ -1,17 +1,25 @@
 #include<stdio.h>
-long fact=1;
-printf("Enter a number :");
-scanf("%d",&n);
-num=n;
-if(n<0)
-  printf("No factorial of negative number\n");
-else
+int factorial(int num)
 {
-  while(n>1)
-  {
-    fact*=n;
-    n--;
-  }
-  printf("Factorial of %d=%ld\n",num,fact);
+  if(num==0)
+    return 1;
+  else
+    return(num*factorial(num-1));
 }
+int main()
+{
+  int num;
+  char option;
+  long fact;
+  do
+  {
+    printf("Enter the number : ");
+    scanf("%d",&num);
+    fact = factorial(num);
+    printf("factorial of %d is %ld\n",num,fact);
+    
+    printf("do you want to continue?(y/n) : ");
+    getchar();
+    scanf("%c",&option);
+  }while(option == 'y' || option == 'Y');
 }
